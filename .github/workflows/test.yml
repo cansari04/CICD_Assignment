@@ -1,6 +1,6 @@
 name: Test
 
-on: 
+on:
   workflow_run:
     workflows: ["Train"]
     types:
@@ -40,9 +40,9 @@ jobs:
       - name: Testing this step
         run: echo "The pull is success!!!"
 
-      - name: Pull and Run the Docker Image 
+      - name: Pull and Run the Docker Image from Registry
         run: |
-          score=$(docker run --rm  ${REGISTRY}/${{ secrets.DOCKER_USERNAME }}/${IMAGE_NAME}:${TAG})
+          score=$(docker run --rm  ${REGISTRY}/${{ secrets.DOCKER_USERNAME }}/${IMAGE_NAME}:${VERSION})
           if (( $(echo "$score > 0.40" | bc -l) )); then
             echo "Test passed"
           else
