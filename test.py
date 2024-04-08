@@ -14,3 +14,4 @@ with open("model.pkl", 'rb') as f:
 
 print(round(model.score(X, y), 3))
 
+
