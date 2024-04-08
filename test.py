@@ -13,3 +13,4 @@ with open("model.pkl", 'rb') as f:
     model = pickle.load(f)
 
 print(round(model.score(X, y), 3))
+
